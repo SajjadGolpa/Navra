@@ -1,0 +1,809 @@
+[2022-08-23 20:41:03,612] [root] [INFO] -> Application Listens on port 9000
+====================================================================================================
+[2022-08-23 20:42:13,624] [root] [INFO] -> Application Listens on port 9000
+====================================================================================================
+[2022-08-23 20:43:01,517] [root] [INFO] -> Application Listens on port 9000
+====================================================================================================
+[2022-08-23 20:43:41,194] [root] [INFO] -> Application Listens on port 9000
+====================================================================================================
+[2022-08-23 20:43:41,244] [waitress] [INFO] -> Serving on http://0.0.0.0:9000
+[2022-08-23 20:48:44,485] [root] [INFO] -> Req id: 1
+Method : CONNECT
+Url : http://www.google.com:443/443
+Headers : User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: www.google.com:443
+Data : b''
+Client IP : 127.0.0.1
+====================================================================================================
+[2022-08-23 20:48:44,486] [root] [WARNING] -> Response For Req id: 1
+Status : 404 NOT FOUND
+Headers : Content-Type: application/json
+Content-Length: 214
+Data : b'{"Error": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. Contact to System Administration. Error ID: 5ac59948-3dd1-4247-9f8e-e4daf298eec9"}'
+====================================================================================================
+[2022-08-23 20:48:56,708] [root] [INFO] -> Req id: 2
+Method : CONNECT
+Url : http://contile.services.mozilla.com:443/443
+Headers : User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0
+Proxy-Connection: keep-alive
+Connection: keep-alive
+Host: contile.services.mozilla.com:443
+Data : b''
+Client IP : 127.0.0.1
+====================================================================================================
+[2022-08-23 20:48:56,708] [root] [WARNING] -> Response For Req id: 2
+Status : 404 NOT FOUND
+Headers : Content-Type: application/json
+Content-Length: 214
+Data : b'{"Error": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. Contact to System Administration. Error ID: 3d22c3a0-3f26-4c05-ba62-aa92151de3d3"}'
+====================================================================================================
+[2022-08-23 20:49:44,517] [root] [INFO] -> Req id: 3
+Method : GET
+Url : http://192.168.1.193:9000/
+Headers : Host: 192.168.1.193:9000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: close
+Upgrade-Insecure-Requests: 1
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 20:49:44,518] [root] [WARNING] -> Response For Req id: 3
+Status : 404 NOT FOUND
+Headers : Content-Type: application/json
+Content-Length: 214
+Data : b'{"Error": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. Contact to System Administration. Error ID: 10b34bb1-c448-464b-984a-540e7ccabef0"}'
+====================================================================================================
+[2022-08-23 20:52:00,575] [root] [INFO] -> Req id: 4
+Method : GET
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 18
+Data : b'{\r\n\t"count" : 3\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 20:52:00,576] [root] [WARNING] -> Response For Req id: 4
+Status : 405 METHOD NOT ALLOWED
+Headers : Content-Type: application/json
+Content-Length: 142
+Data : b'{"Error": "The method is not allowed for the requested URL. Contact to System Administration. Error ID: d6e242cd-d555-4045-bf3b-51c309f7fe29"}'
+Reason : The method is not allowed for the requested URL.
+====================================================================================================
+[2022-08-23 20:52:10,975] [root] [INFO] -> Req id: 5
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 18
+Data : b'{\r\n\t"count" : 3\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 20:52:11,057] [root] [INFO] -> Response For Req id: 5
+Status : 200 OK
+Headers : Content-Type: application/json
+Content-Length: 86
+Data : b'{"gift_ids": ["QNQJMPRU9OE5QU2QCBQV", "OABUUKL9FZC0MQI0IOI9", "B6QG7TMNZOIF2P8Q33LO"]}'
+====================================================================================================
+[2022-08-23 20:57:21,207] [root] [INFO] -> Req id: 6
+Method : POST
+Url : http://waitress.invalid:9000/api/submit-gift
+Headers : Content-Type: application/json
+Content-Length: 60
+Data : b'{\r\n\t"gift_id" :"QNQJMPRU9OE5QU2QCBQV",\r\n"user_id":"1337" \r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 20:57:21,219] [root] [INFO] -> Response For Req id: 6
+Status : 200 OK
+Headers : Content-Type: application/json
+Content-Length: 44
+Data : b'{"Message": "Your account has been charged"}'
+====================================================================================================
+[2022-08-23 20:59:06,372] [root] [INFO] -> Req id: 7
+Method : GET
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 18
+Data : b'{\r\n\t"count" : 3\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 20:59:06,373] [root] [WARNING] -> Response For Req id: 7
+Status : 405 METHOD NOT ALLOWED
+Headers : Content-Type: application/json
+Content-Length: 142
+Data : b'{"Error": "The method is not allowed for the requested URL. Contact to System Administration. Error ID: 62044b4f-b402-47df-b991-6fc7cf850a96"}'
+Reason : The method is not allowed for the requested URL.
+====================================================================================================
+[2022-08-23 21:03:03,457] [root] [INFO] -> Req id: 8
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : Content-Type: application/json
+Content-Length: 18
+Data : b'{\r\n\t"count" : 3\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:03:03,457] [root] [INFO] -> Response For Req id: 8
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 21:04:46,761] [root] [INFO] -> Req id: 9
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: NULL
+Content-Type: application/json
+Content-Length: 18
+Data : b'{\r\n\t"count" : 3\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:04:46,761] [root] [INFO] -> Response For Req id: 9
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 39
+Data : b'{"Error": "X-Admin-token is not valid"}'
+Reason : X-Admin-token is not valid
+====================================================================================================
+[2022-08-23 21:06:01,689] [root] [INFO] -> Req id: 10
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: true
+Content-Type: application/json
+Content-Length: 18
+Data : b'{\r\n\t"count" : 3\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:06:01,689] [root] [INFO] -> Response For Req id: 10
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 39
+Data : b'{"Error": "X-Admin-token is not valid"}'
+Reason : X-Admin-token is not valid
+====================================================================================================
+[2022-08-23 21:06:43,391] [root] [INFO] -> Req id: 11
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Length: 18
+Data : b'{\r\n\t"count" : 3\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:06:43,391] [root] [INFO] -> Response For Req id: 11
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 52
+Data : b'{"Error": "Bad Request: Insert content-type header"}'
+Reason : Insert content-type header
+====================================================================================================
+[2022-08-23 21:09:15,577] [root] [INFO] -> Req id: 12
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/xml
+Content-Length: 18
+Data : b'{\r\n\t"count" : 3\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:09:15,577] [root] [INFO] -> Response For Req id: 12
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 70
+Data : b'{"Error": "Bad Request: Invalid Data. Server just accept JSON Format"}'
+Reason : Content Type is not valid (application/json)
+====================================================================================================
+[2022-08-23 21:11:04,704] [root] [INFO] -> Req id: 13
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 18
+Data : b'{\r\n\t"count" : 3\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:11:04,717] [root] [INFO] -> Response For Req id: 13
+Status : 200 OK
+Headers : Content-Type: application/json
+Content-Length: 86
+Data : b'{"gift_ids": ["I13QF3R1V17FJXR5K94O", "SD3GCZK2NPZ4RQGB1WMP", "40EN1YXXZZUNJW5F17LL"]}'
+====================================================================================================
+[2022-08-23 21:13:55,515] [root] [INFO] -> Req id: 14
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 0
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:13:55,516] [root] [INFO] -> Response For Req id: 14
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:17:49,129] [root] [INFO] -> Req id: 15
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 2
+Data : b'{}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:17:49,129] [root] [INFO] -> Response For Req id: 15
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 59
+Data : b'{"Error": "Bad Request: Please Insert count value in JSON"}'
+Reason : count value is not define
+====================================================================================================
+[2022-08-23 21:18:32,219] [root] [INFO] -> Req id: 16
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 2
+Data : b'[]'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:18:32,219] [root] [INFO] -> Response For Req id: 16
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 59
+Data : b'{"Error": "Bad Request: Please Insert count value in JSON"}'
+Reason : count value is not define
+====================================================================================================
+[2022-08-23 21:21:00,304] [root] [INFO] -> Req id: 17
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 18
+Data : b'[\r\n\t"count" : 3\r\n]'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:21:00,304] [root] [INFO] -> Response For Req id: 17
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:21:21,451] [root] [INFO] -> Req id: 18
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 20
+Data : b'{{\r\n\t"count" : 3\r\n}}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:21:21,451] [root] [INFO] -> Response For Req id: 18
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:22:54,790] [root] [INFO] -> Req id: 19
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 20
+Data : b'[\r\n\t"count" :[ 3]\r\n]'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:22:54,790] [root] [INFO] -> Response For Req id: 19
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:23:56,822] [root] [INFO] -> Req id: 20
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 20
+Data : b'[\r\n\t"count" : 3.1\r\n]'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:23:56,822] [root] [INFO] -> Response For Req id: 20
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:24:36,111] [root] [INFO] -> Req id: 21
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 20
+Data : b'{\r\n\t"count" : [3]\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:24:36,111] [root] [INFO] -> Response For Req id: 21
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 56
+Data : b'{"Error": "Bad Request: count value must be an integer"}'
+Reason : Count Value is Not Valid: [3]
+====================================================================================================
+[2022-08-23 21:26:09,374] [root] [INFO] -> Req id: 22
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 19
+Data : b'[\r\n\t"count" : -3\r\n]'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:26:09,374] [root] [INFO] -> Response For Req id: 22
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:27:09,934] [root] [INFO] -> Req id: 23
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 17
+Data : b'[\r\n\t"count" :0\r\n]'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:27:09,934] [root] [INFO] -> Response For Req id: 23
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:28:14,478] [root] [INFO] -> Req id: 24
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 20
+Data : b'{\r\n\t"count" :1000\r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:28:14,478] [root] [INFO] -> Response For Req id: 24
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 62
+Data : b'{"Error": "Bad Request: count value must be between 1 to 100"}'
+Reason : Count Value is invalid: 1000
+====================================================================================================
+[2022-08-23 21:29:17,976] [root] [INFO] -> Req id: 25
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 8
+Data : b'{"Count"'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:29:17,977] [root] [INFO] -> Response For Req id: 25
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:29:25,822] [root] [INFO] -> Req id: 26
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 4
+Data : b'{"""'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:29:25,822] [root] [INFO] -> Response For Req id: 26
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:29:35,749] [root] [INFO] -> Req id: 27
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 4
+Data : b'{"\\"'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:29:35,750] [root] [INFO] -> Response For Req id: 27
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:30:04,470] [root] [INFO] -> Req id: 28
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 9
+Data : b'{";\'|/#\\"'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:30:04,471] [root] [INFO] -> Response For Req id: 28
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:30:14,416] [root] [INFO] -> Req id: 29
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 8
+Data : b'{";\'|/#\\'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:30:14,416] [root] [INFO] -> Response For Req id: 29
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 21:30:32,165] [root] [INFO] -> Req id: 30
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : X-Admin-Token: fde1b6cb2caf24a52e0780d077e3d
+Content-Type: application/json
+Content-Length: 9
+Data : b'})";\'|/#\\'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 21:30:32,166] [root] [INFO] -> Response For Req id: 30
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 23:27:38,450] [root] [INFO] -> Req id: 31
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:38,450] [root] [INFO] -> Response For Req id: 31
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:41,426] [root] [INFO] -> Req id: 32
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:41,426] [root] [INFO] -> Response For Req id: 32
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:42,860] [root] [INFO] -> Req id: 33
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:42,860] [root] [INFO] -> Response For Req id: 33
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:44,211] [root] [INFO] -> Req id: 34
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:44,211] [root] [INFO] -> Response For Req id: 34
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:45,595] [root] [INFO] -> Req id: 35
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:45,595] [root] [INFO] -> Response For Req id: 35
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:46,970] [root] [INFO] -> Req id: 36
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:46,970] [root] [INFO] -> Response For Req id: 36
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:48,354] [root] [INFO] -> Req id: 37
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:48,355] [root] [INFO] -> Response For Req id: 37
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:49,645] [root] [INFO] -> Req id: 38
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:49,645] [root] [INFO] -> Response For Req id: 38
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:50,971] [root] [INFO] -> Req id: 39
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:50,971] [root] [INFO] -> Response For Req id: 39
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:52,419] [root] [INFO] -> Req id: 40
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:52,419] [root] [INFO] -> Response For Req id: 40
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:53,843] [root] [INFO] -> Req id: 41
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:53,843] [root] [INFO] -> Response For Req id: 41
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:55,259] [root] [INFO] -> Req id: 42
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:55,260] [root] [INFO] -> Response For Req id: 42
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:56,659] [root] [INFO] -> Req id: 43
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:56,659] [root] [INFO] -> Response For Req id: 43
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:58,012] [root] [INFO] -> Req id: 44
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:58,012] [root] [INFO] -> Response For Req id: 44
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:27:59,139] [root] [INFO] -> Req id: 45
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:27:59,139] [root] [INFO] -> Response For Req id: 45
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 33
+Data : b'{"Error": "Insert X-Admin-token"}'
+Reason : Insert X-Admin-token
+====================================================================================================
+[2022-08-23 23:28:00,693] [root] [INFO] -> Req id: 46
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:28:00,693] [root] [INFO] -> Response For Req id: 46
+Status : 429 TOO MANY REQUESTS
+Headers : Content-Type: application/json
+Content-Length: 47
+Data : b'{"Error": "Too Many Requests. Retry-After: 60"}'
+Reason : Too Many Requests
+====================================================================================================
+[2022-08-23 23:28:02,004] [root] [INFO] -> Req id: 47
+Method : POST
+Url : http://waitress.invalid:9000/api/generate-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:28:02,005] [root] [INFO] -> Response For Req id: 47
+Status : 429 TOO MANY REQUESTS
+Headers : Content-Type: application/json
+Content-Length: 47
+Data : b'{"Error": "Too Many Requests. Retry-After: 60"}'
+Reason : Too Many Requests
+====================================================================================================
+[2022-08-23 23:31:46,759] [root] [INFO] -> Req id: 48
+Method : POST
+Url : http://waitress.invalid:9000/api/submit-gift
+Headers : 
+Data : b''
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:31:46,759] [root] [INFO] -> Response For Req id: 48
+Status : 403 FORBIDDEN
+Headers : Content-Type: application/json
+Content-Length: 52
+Data : b'{"Error": "Bad Request: Insert content-type header"}'
+Reason : Insert content-type header
+====================================================================================================
+[2022-08-23 23:33:17,238] [root] [INFO] -> Req id: 49
+Method : POST
+Url : http://waitress.invalid:9000/api/submit-gift
+Headers : Content-Type: application/json
+Content-Length: 60
+Data : b'{\r\n\t"gift_id" :"QNQJMPRU9OE5QU2QCBQV",\r\n"user_id":"1337" \r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:33:17,241] [root] [INFO] -> Response For Req id: 49
+Status : 200 OK
+Headers : Content-Type: application/json
+Content-Length: 40
+Data : b'{"Message": "Failed to apply gift card"}'
+====================================================================================================
+[2022-08-23 23:35:35,879] [root] [INFO] -> Req id: 50
+Method : POST
+Url : http://waitress.invalid:9000/api/submit-gift
+Headers : Content-Type: application/json
+Content-Length: 60
+Data : b'{\r\n\t"gift_id" :"40EN1YXXZZUNJW5F17LL",\r\n"user_id":"1337" \r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:35:35,880] [root] [INFO] -> Response For Req id: 50
+Status : 200 OK
+Headers : Content-Type: application/json
+Content-Length: 40
+Data : b'{"Message": "Failed to apply gift card"}'
+====================================================================================================
+[2022-08-23 23:35:59,577] [root] [INFO] -> Req id: 51
+Method : POST
+Url : http://waitress.invalid:9000/api/submit-gift
+Headers : Content-Type: application/json
+Content-Length: 60
+Data : b'{\r\n\t"gift_id" :"B6QG7TMNZOIF2P8Q33LO",\r\n"user_id":"1337" \r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:35:59,578] [root] [INFO] -> Response For Req id: 51
+Status : 200 OK
+Headers : Content-Type: application/json
+Content-Length: 40
+Data : b'{"Message": "Failed to apply gift card"}'
+====================================================================================================
+[2022-08-23 23:37:51,838] [root] [INFO] -> Req id: 52
+Method : POST
+Url : http://waitress.invalid:9000/api/submit-gift
+Headers : Content-Type: application/json
+Content-Length: 60
+Data : b'{\r\n\t"gift_id" :"QNQJMPRU9OE5QU2QCBQV",\r\n\tuser_id":"9999" \r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:37:51,838] [root] [INFO] -> Response For Req id: 52
+Status : 400 BAD REQUEST
+Headers : Content-Type: application/json
+Content-Length: 38
+Data : b'{"Error": "Bad Request: Invalid Data"}'
+Reason : Requested Format is Not Json
+====================================================================================================
+[2022-08-23 23:37:58,863] [root] [INFO] -> Req id: 53
+Method : POST
+Url : http://waitress.invalid:9000/api/submit-gift
+Headers : Content-Type: application/json
+Content-Length: 61
+Data : b'{\r\n\t"gift_id" :"QNQJMPRU9OE5QU2QCBQV",\r\n\t"user_id":"9999" \r\n}'
+Client IP : 192.168.1.193
+====================================================================================================
+[2022-08-23 23:37:58,866] [root] [INFO] -> Response For Req id: 53
+Status : 200 OK
+Headers : Content-Type: application/json
+Content-Length: 40
+Data : b'{"Message": "Failed to apply gift card"}'
+====================================================================================================
