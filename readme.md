@@ -477,7 +477,7 @@ Via: waitress
 ```
 ---
 6. Rate Limit\
-Blocks more than 10 requests per minute
+Blocks more than 10 requests per minute\
 **Request 1**
 ```
 POST /api/generate-gift HTTP/1.1
@@ -541,7 +541,7 @@ Via: waitress
 {"Message": "Failed to apply gift card"}
 ```
 ---
-3. Use an other valid Gift Code for Previous User
+3. Use an other valid Gift Code for Previous User\
 **Request**
 ```
 POST /api/submit-gift HTTP/1.1
@@ -565,7 +565,7 @@ Via: waitress
 {"Message": "Failed to apply gift card"}
 ```
 ---
-4. Use Pre Used Gift Code for an other User
+4. Use Pre Used Gift Code for an other User\
 **Request**
 ```
 POST /api/submit-gift HTTP/1.1
