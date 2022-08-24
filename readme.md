@@ -2,6 +2,7 @@
 
 ## Run by Docker
 ```bash
+cd Navra
 docker compose build
 docker compose up -d
 ```
