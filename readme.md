@@ -16,7 +16,7 @@ sudo apt update
 sudo apt install python3
 sudo apt install python3-pip
 sudo apt install mysql-server
-cd src
+cd Flask
 sudo pip3 install -r requirements.txt
 ```
 ### Prepare MySQL Database
@@ -31,7 +31,7 @@ GRANT INSERT, UPDATE, SELECT on navra_db.Discount_Table TO 'navra'@'localhost';
 ### Run without Docker
 
 ```bash
-cd src
+cd Flask
 sudo python3 Main.py
 ```
 
