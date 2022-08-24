@@ -37,8 +37,8 @@ app = customFlask(__name__)
 
 req_id = 0
 lock_id = threading.Lock()
-lock_database = threading.Lock()
-lock_discount_code_generation = threading.Lock()
+lock_discount_code_submission = threading.Lock() # prevent race condition on discount code submission
+lock_discount_code_generation = threading.Lock() # prevent race condition on discount code generation
 lock_rate_limit = threading.Lock()
 allowed_methods = ["POST"]
 request_count_per_ip = dict()
@@ -102,8 +102,6 @@ def error_json(msg):
 
 
 def db_query(query, inputs):
-    global lock_database
-    lock_database.acquire()
     result = None
     try:
         cursor.execute(query, inputs)
@@ -112,8 +110,6 @@ def db_query(query, inputs):
     except mysql.connector.Error as error:
         do_log("SQL Error: \nQuery: " + query + "\nInputs: " + str(inputs), logging.error, None, None)
         raise error
-    finally:
-        lock_database.release()
     return result
 
 
@@ -210,6 +206,7 @@ def generate_gift():
 def submit_gift():
     global request_count_per_ip
     global lock_rate_limit
+    global lock_discount_code_submission
     req_id = get_req_id()
     # log request
     do_log(request, logging.info, req_id, None)
@@ -265,19 +262,23 @@ def submit_gift():
             Response(error_json("Bad Request: Invalid user id"), content_type="application/json",
                      status=400),
             logging.info, req_id, "user_id Value is not valid.")
+    lock_discount_code_submission.acquire()
     if len(db_query("SELECT PersonID FROM Discount_Table WHERE PersonID = %s;", [str(user_id)])) != 0:
+        lock_discount_code_submission.release()
         return do_log(
             Response(json.dumps({"Message": "Failed to apply gift card"}), content_type="application/json",
                      status=200),
             logging.info, req_id, "User (" + str(user_id) + ") attempt to use code: " + str(posted_data["gift_id"]))
     result = db_query("SELECT * FROM Discount_Table WHERE Discount_Code = %s;", [str(posted_data["gift_id"])])
     if len(result) == 0:
+        lock_discount_code_submission.release()
         return do_log(
             Response(json.dumps({"Message": "Failed to apply gift card"}), content_type="application/json",
                      status=200),
             logging.info, req_id,
             "User (" + str(user_id) + ") attempt to use unknown code: " + str(posted_data["gift_id"]))
     if result[0][1] != -1:
+        lock_discount_code_submission.release()
         return do_log(
             Response(json.dumps({"Message": "Failed to apply gift card"}), content_type="application/json",
                      status=200),
@@ -285,6 +286,7 @@ def submit_gift():
             "User (" + str(user_id) + ") attempt to use pre used code: " + str(posted_data["gift_id"]))
     db_query("UPDATE discount_table set PersonID = %s where Discount_Code = %s;",
              (str(user_id), str(posted_data["gift_id"])))
+    lock_discount_code_submission.release()
     return do_log(
         Response(json.dumps({"Message": "Your account has been charged"}), content_type="application/json",
                  status=200),
